@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="343.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.alien.AlienController">
+<BorderPane prefHeight="343.0" prefWidth="513.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.alien.AlienController">
    <top>
       <Label text="Lab 1 - Alien Translator" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -54,7 +54,7 @@
                   </Button>
                   <ImageView fitHeight="52.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../Desktop/alieno.png" />
+                        <Image url="@../../../../../rsc/Alien-512.png" />
                      </image>
                      <HBox.margin>
                         <Insets bottom="5.0" left="40.0" />
@@ -65,7 +65,7 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </HBox>
-            <TextArea fx:id="txtResult" />
+            <TextArea fx:id="txtResult" editable="false" />
          </children>
       </VBox>
    </center>
