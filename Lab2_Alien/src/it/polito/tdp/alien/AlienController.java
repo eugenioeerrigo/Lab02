@@ -17,6 +17,8 @@ import javafx.scene.control.TextField;
 
 public class AlienController {
 	
+	AlienDictionary a;
+	
     @FXML
     private ResourceBundle resources;
     @FXML
@@ -43,13 +45,24 @@ public class AlienController {
     
     @FXML
     void doTranslate(ActionEvent event) {
-    	    	
+    	String in = txtWord.getText().toLowerCase();
+    	
+    	String[] arr = in.split(" ");
+    	//System.out.println(arr[0]+"   rsgdrhe");
+    	if(arr.length==2){
+    		//System.out.println("CCC  "+arr[0]+"   "+arr[1]);
+    		a.addWord(arr[0], arr[1]);
+    		txtResult.appendText("Inserita!");
+    	} else if(arr.length==1){
+    		txtResult.appendText(a.translateWord(arr[0]));
+    	}
+    	
     }
     
     
     @FXML
     void doReset(ActionEvent event) {
-
+    	txtResult.clear();
     }
     
 }
