@@ -11,6 +11,22 @@ public class WordEnhanced {
 		this.alienWord = alienWord;
 		this.translations = translations;
 	}
+
+	public String getAlienWord() {
+		return alienWord;
+	}
+
+	public void setAlienWord(String alienWord) {
+		this.alienWord = alienWord;
+	}
+
+	public List<String> getTranslations() {
+		return translations;
+	}
+
+	public void setTranslations(List<String> translations) {
+		this.translations = translations;
+	}
 	
 	
 }

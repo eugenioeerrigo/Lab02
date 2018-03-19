@@ -4,25 +4,24 @@ import java.util.*;
 
 public class AlienDictionary {
 	
-	List<Word> wordList = new LinkedList<Word>();
+	List<WordEnhanced> wordList = new LinkedList<WordEnhanced>();
 	
-	public void addWord(String alienWord, String translation){
-		Word n = new  Word(alienWord, translation);
+	public void addWord(String alienWord, List<String> translation){
+		WordEnhanced n = new  WordEnhanced(alienWord, translation);
 		if(!wordList.contains(n))
 			wordList.add(n);
 		else
-			n.setTranslation(translation);
+			n.setTranslations(translation);
 	}
 	
 	public String translateWord(String alienWord){
-		for(Word n : wordList)
-			if(n.getAlienWord().equals(alienWord))
-				return n.getTranslation();
+		String ris="";
+		for(WordEnhanced n : wordList)
+			if(n.getAlienWord().equals(alienWord)) {
+				for(String s : n.getTranslations())
+					ris += s+" ";
+				return ris;
+			}
 		return null;
-	}
-	
-	public void addMultipleWords(String alienWord, List<String> translations) {
-		WordEnhanced w = new WordEnhanced(alienWord, translations);
-		//?
 	}
 }

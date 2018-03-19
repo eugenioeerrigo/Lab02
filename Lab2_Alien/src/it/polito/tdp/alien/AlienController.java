@@ -9,6 +9,8 @@ package it.polito.tdp.alien;
 import java.net.URL;
 import java.util.*;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,23 +48,32 @@ public class AlienController {
     
     @FXML
     void doTranslate(ActionEvent event) {
+    	List<String> translations = new LinkedList<String>();
+    	
     	String in = txtWord.getText().toLowerCase();
+    	
+    	Pattern p = Pattern.compile("[0-9]");    	
+    	Matcher m = p.matcher(in);
+    	if(!m.find()){
     	String[] arr = in.split(" ");
+    	
+    	for(int i=1; i<arr.length; i++) 
+			translations.add(arr[i]);
+    	
     	if(arr.length==2){
-    		a.addWord(arr[0], arr[1]);
-    		txtResult.appendText("Inserita!");
+    		a.addWord(arr[0], translations);
+    		txtResult.appendText("Inserita!\n");
     	}
+    	
     	if(arr.length==1)
-    		txtResult.appendText(a.translateWord(arr[0]));
+    		txtResult.appendText(a.translateWord(arr[0])+"\n");
     	
     	if(arr.length>2) {
-    		List<String> translations = new LinkedList<String>();
-    		for(int i=1; i<arr.length; i++) 
-    			translations.add(arr[i]);
-    		a.addMultipleWords(arr[0], translations);
-    		txtResult.appendText("Inserite parole multiple!");
+    		a.addWord(arr[0], translations);
+    		txtResult.appendText("Inserite parole multiple!\n");
     	}
-    	
+    	}else
+    		txtResult.appendText("ERRORE! Inserire solo caratteri.\n");
     }
     
     
