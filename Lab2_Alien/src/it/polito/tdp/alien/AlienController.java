@@ -7,6 +7,7 @@ package it.polito.tdp.alien;
 
 
 import java.net.URL;
+import java.util.*;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -53,6 +54,14 @@ public class AlienController {
     	}
     	if(arr.length==1)
     		txtResult.appendText(a.translateWord(arr[0]));
+    	
+    	if(arr.length>2) {
+    		List<String> translations = new LinkedList<String>();
+    		for(int i=1; i<arr.length; i++) 
+    			translations.add(arr[i]);
+    		a.addMultipleWords(arr[0], translations);
+    		txtResult.appendText("Inserite parole multiple!");
+    	}
     	
     }
     

@@ -20,4 +20,9 @@ public class AlienDictionary {
 				return n.getTranslation();
 		return null;
 	}
+	
+	public void addMultipleWords(String alienWord, List<String> translations) {
+		WordEnhanced w = new WordEnhanced(alienWord, translations);
+		//?
+	}
 }
