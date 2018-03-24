@@ -4,8 +4,12 @@ import java.util.*;
 
 public class AlienDictionary {
 	
-	List<WordEnhanced> wordList = new LinkedList<WordEnhanced>();
+	List<WordEnhanced> wordList;
 	
+	public AlienDictionary() {
+		this.wordList = new LinkedList<WordEnhanced>();
+	}
+
 	public void addWord(String alienWord, List<String> translation){
 		WordEnhanced n = new  WordEnhanced(alienWord, translation);
 		if(!wordList.contains(n))

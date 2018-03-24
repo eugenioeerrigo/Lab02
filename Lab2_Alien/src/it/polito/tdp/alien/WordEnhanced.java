@@ -28,5 +28,4 @@ public class WordEnhanced {
 		this.translations = translations;
 	}
 	
-	
 }
